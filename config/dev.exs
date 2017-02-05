@@ -36,8 +36,9 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :noel, Noel.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: System.get_env("NOEL_DB_USERNAME") || "postgres",
+  password: System.get_env("NOEL_DB_PASSWORD") || "",
   database: "noel_dev",
-  hostname: "localhost",
+  hostname: System.get_env("NOEL_DB_HOSTNAME") || "localhost",
+  port:     System.get_env("NOEL_DB_PORT") || 5432,
   pool_size: 10
