@@ -38,7 +38,10 @@ defmodule Noel.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:amqp, "~> 0.1.5", hex: :amqp19}
+     {:amqp, "~> 0.1.5", hex: :amqp19},
+     {:ex_aws, "~> 1.1"},
+     {:hackney, "~> 1.6"},
+     {:poison, "~> 2.0"}
    ]
   end
 
