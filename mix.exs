@@ -42,6 +42,7 @@ defmodule Noel.Mixfile do
      {:configparser_ex, "~> 0.2.1"},
      {:ex_aws, "~> 1.1"},
      {:hackney, "~> 1.6"},
+     {:json, "~> 1.0"},
      {:poison, "~> 2.0"},
      {:sweet_xml, "~> 0.6.4"}
    ]
