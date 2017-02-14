@@ -10,4 +10,8 @@ defmodule Noel.SqsQueue do
     SQS.delete_message(queue_name, receipt_handle)
     |> ExAws.request
   end
+
+  def list_existing_queues do
+    SQS.list_queues |> ExAws.request
+  end
 end
