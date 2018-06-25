@@ -30,22 +30,22 @@ defmodule Noel.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.1"},
+    [{:phoenix, "~> 1.3.3"},
      {:phoenix_pubsub, "~> 1.0"},
-     {:phoenix_ecto, "~> 3.0"},
-     {:postgrex, ">= 0.0.0"},
-     {:phoenix_html, "~> 2.6"},
+     {:phoenix_ecto, "~> 3.3"},
+     {:postgrex, ">= 0.13.5"},
+     {:phoenix_html, "~> 2.11"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:amqp, "~> 0.1.5", hex: :amqp19},
-     {:configparser_ex, "~> 0.2.1"},
-     {:ex_aws, "~> 1.1"},
-     {:hackney, "~> 1.6"},
-     {:json, "~> 1.0"},
+     {:configparser_ex, "~> 2.0"},
+     {:ex_aws, "~> 2.1"},
+     {:hackney, "~> 1.13"},
+     {:json, "~> 1.2"},
      {:kafka_ex, "~> 0.6.4"},
-     {:poison, "~> 2.0"},
-     {:sweet_xml, "~> 0.6.4"}
+     {:poison, "~> 3.1"},
+     {:sweet_xml, "~> 0.6.5"}
    ]
   end
 
