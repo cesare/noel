@@ -3,9 +3,10 @@ defmodule Noel.Repo.Migrations.CreateSlackTokens do
 
   def up do
     create table("slack_tokens") do
-      add :name,        :string, null: false
-      add :token,       :string, null: false
-      add :description, :string, null: true
+      add :name,               :string, null: false
+      add :encrypted_token,    :string, null: false
+      add :encrypted_token_iv, :string, null: false
+      add :description,        :string, null: true
 
       timestamps type: :utc_datetime, updated_at: false
     end
