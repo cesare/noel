@@ -41,6 +41,7 @@ defmodule Noel.Mixfile do
      {:amqp, "~> 0.1.5", hex: :amqp19},
      {:configparser_ex, "~> 2.0"},
      {:ex_aws, "~> 2.1"},
+     {:ex_crypto, "~> 0.9"},
      {:hackney, "~> 1.13"},
      {:json, "~> 1.2"},
      {:kafka_ex, "~> 0.6.4"},
