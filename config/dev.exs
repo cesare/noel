@@ -42,3 +42,5 @@ config :noel, Noel.Repo,
   hostname: System.get_env("NOEL_DB_HOSTNAME") || "localhost",
   port:     System.get_env("NOEL_DB_PORT") || 5432,
   pool_size: 10
+
+import_config "dev.secret.exs"
