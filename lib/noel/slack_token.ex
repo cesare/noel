@@ -13,6 +13,13 @@ defmodule Noel.SlackToken do
     timestamps type: :utc_datetime, updated_at: false
   end
 
+  def restore(%SlackToken{encrypted_token: base64_encrypted_token, encrypted_token_iv: base64_iv}) do
+    key = encryption_key()
+    {:ok, encrypted_token} = Base.url_decode64(base64_encrypted_token)
+    {:ok, iv} = Base.url_decode64(base64_iv)
+    ExCrypto.decrypt(key, iv, encrypted_token)
+  end
+
   @required_fields ~w(name token)a
   @optional_fields ~w(description)a
   def changeset(%SlackToken{} = slack_token, attrs) do
