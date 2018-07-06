@@ -13,10 +13,12 @@ defmodule Noel.SlackToken do
     timestamps type: :utc_datetime, updated_at: false
   end
 
+  @required_fields ~w(name token)a
+  @optional_fields ~w(description)a
   def changeset(%SlackToken{} = slack_token, attrs) do
     slack_token
-    |> cast(attrs, [:name, :token, :description])
-    |> validate_required([:name, :token])
+    |> cast(attrs, @required_fields ++ @optional_fields)
+    |> validate_required(@required_fields)
     |> set_encrypted_token()
   end
 
