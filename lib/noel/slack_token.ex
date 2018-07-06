@@ -14,15 +14,22 @@ defmodule Noel.SlackToken do
   end
 
   def changeset(%SlackToken{} = slack_token, attrs) do
-    [encrypted_token, iv] = encrypt_token(attrs[:token])
     slack_token
     |> cast(attrs, [:name, :token, :description])
     |> validate_required([:name, :token])
+    |> set_encrypted_token()
+  end
+
+  defp set_encrypted_token(changeset) do
+    cleartext_token = get_field(changeset, :token)
+    [encrypted_token, iv] = encrypt_token(cleartext_token)
+
+    changeset
     |> put_change(:encrypted_token, encrypted_token)
     |> put_change(:encrypted_token_iv, iv)
   end
 
-  def encrypt_token(cleartext_token) do
+  defp encrypt_token(cleartext_token) do
     key = encryption_key()
     {:ok, {iv_bytes, encrypted_token_bytes}} = ExCrypto.encrypt(key, cleartext_token)
 
