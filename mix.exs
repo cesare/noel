@@ -46,6 +46,7 @@ defmodule Noel.Mixfile do
      {:json, "~> 1.2"},
      {:kafka_ex, "~> 0.6.4"},
      {:poison, "~> 3.1"},
+     {:socket, "~> 0.3.13"},
      {:sweet_xml, "~> 0.6.5"}
    ]
   end
