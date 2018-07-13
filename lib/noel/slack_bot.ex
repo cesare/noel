@@ -1,13 +1,11 @@
 defmodule Noel.SlackBot do
   use GenServer
 
-  alias Noel.Repo
-  alias Noel.{SlackConnection, SlackToken}
+  alias Noel.{SlackConnection, SlackWatcher}
 
   def start_link(slack_watcher) do
     name = :"#{__MODULE__}-#{slack_watcher.name}"
-    slack_watcher = slack_watcher |> Repo.preload(:token)
-    {:ok, token} = slack_watcher.token |> SlackToken.restore
+    token = slack_watcher |> SlackWatcher.restore_token
     GenServer.start_link(__MODULE__, token, name: name)
   end
 

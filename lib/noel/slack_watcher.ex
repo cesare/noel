@@ -1,6 +1,7 @@
 defmodule Noel.SlackWatcher do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Noel.Repo
   alias Noel.{SlackChannel, SlackWatcher, SlackToken}
 
   schema "slack_watchers" do
@@ -19,5 +20,11 @@ defmodule Noel.SlackWatcher do
     |> put_assoc(:token, attrs[:token])
     |> put_assoc(:channel, attrs[:channel])
     |> validate_required([:token, :name])
+  end
+
+  def restore_token(slack_watcher) do
+    watcher = slack_watcher |> Repo.preload(:token)
+    {:ok, token} = watcher.token |> SlackToken.restore
+    token
   end
 end
