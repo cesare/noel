@@ -19,7 +19,7 @@ defmodule Noel.Mixfile do
   def application do
     [mod: {Noel, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :amqp, :ex_aws, :hackney, :poison, :sweet_xml]]
+                    :phoenix_ecto, :postgrex, :ex_aws, :hackney, :poison, :sweet_xml]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,6 @@ defmodule Noel.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:amqp, "~> 0.1.5", hex: :amqp19},
      {:configparser_ex, "~> 2.0"},
      {:ex_aws, "~> 2.1"},
      {:ex_crypto, "~> 0.9"},
